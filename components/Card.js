@@ -17,6 +17,8 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useState } from 'react';
+import { TextField } from '@mui/material';
+
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -37,7 +39,7 @@ export default function RecipeReviewCard() {
   };
 
   return (
-    <Card sx={{margin:'10px'}}>
+    <Card sx={{ width:'100%'}}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -54,7 +56,7 @@ export default function RecipeReviewCard() {
       />
       <CardMedia
         component="img"
-        height="500"
+        height="auto"
         alt="Paella dish"
         image={'https://source.unsplash.com/random'}
       />
@@ -110,6 +112,8 @@ export default function RecipeReviewCard() {
           </Typography>
         </CardContent>
       </Collapse>
+      
+      <TextField label="Adicione um comentário" variant="outlined"  sx={{margin:'5px', width:'300px', padding:'0px'}}/>
     </Card>
-  );
+  )
 }

@@ -1,3 +1,4 @@
+import styled from 'styled-components'
 import Card from '../Card'
 
 import {
@@ -7,11 +8,25 @@ import {
 
 } from '@mui/material'
 
+
+const StyledConatiner = styled(Container)`
+
+       &&  { padding-top: 50px;
+          padding-bottom: 50px;
+          padding-left: 0px;
+          padding-right: 0px;
+  }
+
+`
+
 const PageInitial = () => {
   return (
     <>
-      <Container maxWidth='md' sx={{ paddingTop: '50px', paddingBottom: '50px' }}>
-        <Grid container spacing={1} sx={{ display: 'flex', justifyContent: 'center' }}>
+      <StyledConatiner maxWidth='md'>
+        <Grid container spacing={1} sx={{
+          display: 'flex', justifyContent: 'center', paddingLeft: '0px',
+          paddingRight: '0px'
+        }}>
           <Grid item minWidth='100%'>
             <Card />
           </Grid>
@@ -22,7 +37,7 @@ const PageInitial = () => {
             <Card />
           </Grid>
         </Grid>
-      </Container>
+      </StyledConatiner>
     </>
   )
 }
