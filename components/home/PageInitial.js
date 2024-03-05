@@ -1,32 +1,27 @@
+import Card from '../Card'
 
-import Box from '@mui/material/Box'
-import Container from '@mui/material/Container'
-import { Card, Button } from '@mui/material'
-import styled from 'styled-components'
+import {
+  CardMedia,
+  Container,
+  Grid,
 
+} from '@mui/material'
 
-const StyledButton = styled(Button)`
- && {
-
-  font-size: 1em;
-  margin: 1em;
-  padding: 1em 1em;
-  border-radius: 50px;
-  background-color: aliceblue;
-}
-
-`;
 const PageInitial = () => {
   return (
     <>
-      <Container maxWidth="md">
-        <Box sx={{ bgcolor: '#cfe8fc', height: '100vh' }}>
-          <Card>
-            <StyledButton>
-              Publique seu evento ou compartilhe um
-            </StyledButton>
-          </Card>
-        </Box>
+      <Container maxWidth='md' sx={{ paddingTop: '50px', paddingBottom: '50px' }}>
+        <Grid container spacing={1} sx={{ display: 'flex', justifyContent: 'center' }}>
+          <Grid item minWidth='100%'>
+            <Card />
+          </Grid>
+          <Grid item minWidth='100%'>
+            <Card />
+          </Grid>
+          <Grid item minWidth='100%'>
+            <Card />
+          </Grid>
+        </Grid>
       </Container>
     </>
   )
