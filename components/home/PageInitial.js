@@ -2,12 +2,9 @@ import styled from 'styled-components'
 import Card from '../Card'
 
 import {
-  CardMedia,
   Container,
   Grid,
-
 } from '@mui/material'
-
 
 const StyledConatiner = styled(Container)`
 
