@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Card from '../Card'
+import Card from './card/Card'
 
 import {
   Container,
@@ -8,14 +8,14 @@ import {
 
 const StyledConatiner = styled(Container)`
 
- && { padding-top: 50px;
+ && { 
+    padding-top: 50px;
      padding-bottom: 50px;
      padding-left: 0px;
-      padding-right: 0px;
+    padding-right: 0px;
   }
 
 `
-
 const PageInitial = () => {
   return (
     <>

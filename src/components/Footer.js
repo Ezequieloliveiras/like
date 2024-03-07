@@ -1,19 +1,17 @@
-'use client'
-
-import BottomNavigation from '@mui/material/BottomNavigation';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import FolderIcon from '@mui/icons-material/Folder';
-import RestoreIcon from '@mui/icons-material/Restore';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import { useState } from 'react';
+import { useState } from 'react'
+import BottomNavigation from '@mui/material/BottomNavigation'
+import BottomNavigationAction from '@mui/material/BottomNavigationAction'
+import FolderIcon from '@mui/icons-material/Folder'
+import RestoreIcon from '@mui/icons-material/Restore'
+import FavoriteIcon from '@mui/icons-material/Favorite'
+import LocationOnIcon from '@mui/icons-material/LocationOn'
 
 export default function LabelBottomNavigation() {
-  const [value, setValue] = useState('recents');
+  const [value, setValue] = useState('recents')
 
   const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+    setValue(newValue)
+  }
 
   return (
     <BottomNavigation value={value} onChange={handleChange} sx={{backgroundColor:'#a7ffeb'}}>
@@ -34,5 +32,5 @@ export default function LabelBottomNavigation() {
       />
       <BottomNavigationAction label="Folder" value="folder" icon={<FolderIcon />} />
     </BottomNavigation>
-  );
+  )
 }

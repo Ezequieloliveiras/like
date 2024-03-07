@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { TextareaAutosize } from '@mui/base';
+import { TextareaAutosize } from '@mui/base'
 
 const StyledTextareaAutosize = styled(TextareaAutosize)`
     resize: none;
@@ -11,6 +11,7 @@ const StyledTextareaAutosize = styled(TextareaAutosize)`
     margin-bottom: 10px; 
     width: 100%;
     font-family: sans-serif;
+    font-size: 15px;
 `
 
 const StyledButton = styled.button`

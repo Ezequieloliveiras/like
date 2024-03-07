@@ -1,6 +1,4 @@
-'use client'
-
-import Coment from '../components/home/coment/Coment'
+import Coment from '../coment/Coment'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import ShareIcon from '@mui/icons-material/Share'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
