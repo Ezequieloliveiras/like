@@ -40,7 +40,7 @@ function Coment() {
     setComment('')
 
     try {
-      const res = await fetch('api/register', {
+      const res = await fetch('api/post', {
         method: 'POST',
         headers: {
           "Content-Type": "application/json"
