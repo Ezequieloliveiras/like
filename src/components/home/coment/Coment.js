@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import axios from 'axios';
 import {
   CardContent,
   Collapse,
@@ -40,20 +40,17 @@ function Coment() {
     setComment('')
 
     try {
-      const res = await fetch('api/post', {
-        method: 'POST',
-        headers: {
-          "Content-Type": "application/json"
+      // Envia uma requisição post
+      await axios({
+        method: "post",
+        url: "/api/post",
+        data: {
+          comment: comment,
         },
-        body: JSON.stringify({ comment })
       })
 
-      if (res.ok) {
-        const form = e.target
-        form.reset()
-      } else {
-        console.log('Registro de comentário falhou')
-      }
+      console.log('POST enviado com sucesso!')
+
     } catch (error) {
       console.log('erro durante o registro', error)
     }
