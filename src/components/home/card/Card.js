@@ -3,8 +3,8 @@ import ShareIcon from '@mui/icons-material/Share'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
 import { red } from '@mui/material/colors'
 
-import CommentField from '../commentField/Coment'
-import ListComments from '../getListComments/comments'
+import CommentField from '../postCommentField/Coment'
+import ListComments from '../listComments/comments'
 
 import {
   Card,
@@ -59,6 +59,7 @@ export default function RecipeReviewCard() {
       </CardActions>
       <CommentField />
       <ListComments/>
+
     </Card>
   )
 }

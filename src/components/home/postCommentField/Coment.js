@@ -13,13 +13,6 @@ function Coment() {
   const [comment, setComment] = useState('')
   // Estado para armazenar todos os comentários
   const [comments, setComments] = useState([])
-  // Controle de abertura dos comentários
-  const [expanded, setExpanded] = useState(false)
-
-  // Função que controla a abertura e o fechamento dos comentários
-  const handleExpandClick = () => {
-    setExpanded(!expanded)
-  }
 
   // Função para lidar com a submissão do formulário
   const handleSubmit = async (e) => {
@@ -28,14 +21,13 @@ function Coment() {
     try {
       // Envia o comentário para a API
       const response = await axios.post("http://localhost:8080/api/usuarios", { comment })
-      const { data } = response
-
+      
       // Adiciona o novo comentário na lista de comentários
       setComments([comment, ...comments])
       // Limpa o campo de comentário
       setComment('')
 
-      console.log(data) // Exibe a resposta da API no console
+      console.log(response) // Exibe a resposta da API no console
     } catch (error) {
       console.error('Erro ao enviar o comentário:', error)
     }
@@ -43,7 +35,6 @@ function Coment() {
 
   return (
     <div>
-      {/* Formulário de comentário */}
       <form onSubmit={handleSubmit}>
         <div style={{ display: 'flex' }}>
           <StyledTextareaAutosize

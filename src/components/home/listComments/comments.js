@@ -32,6 +32,17 @@ function Comments() {
     Users()
   }, [users]) // lista de dependências vazia significa que o efeito será executado somente após a primeira renderização do componente, o oposto é renderizar a cada muudança
 
+
+  const deleteUser = async (userId) => {
+    try {
+      await axios.delete(`http://localhost:8080/api/usuarios/${userId}`)
+      // Atualizar a lista de usuários após a exclusão
+      const updatedUsers = users.filter(user => user._id !== userId)
+      setUsers(updatedUsers)
+    } catch (error) {
+      console.error("Erro ao excluir usuário:", error)
+    }
+  }
   return (
 
     <div>
@@ -45,18 +56,19 @@ function Comments() {
 
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-         
-            {users.map(user => (
-              <Typography key={user.id}>
-                <strong>Comentário:</strong> {user.comment},
+          {users.map(user => (
+            <div key={user._id}>
+              <Typography>
+                <strong>Comentário:</strong> {user.comment}
               </Typography>
-            ))}
-     
+              <button onClick={() => deleteUser(user._id)}>Excluir</button>
+            </div>
+          ))}
         </CardContent>
       </Collapse>
 
     </div>
   )
 }
-
+//  Isso significa que o _id do usuário correspondente ao botão "Excluir" clicado será passado para a função deleteUser
 export default Comments
