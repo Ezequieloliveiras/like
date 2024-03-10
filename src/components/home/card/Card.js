@@ -20,7 +20,7 @@ import {
 export default function RecipeReviewCard() {
 
   return (
-    <Card sx={{ width: '100%', position:'relative' }}>
+    <Card sx={{ width: '100%'}}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">

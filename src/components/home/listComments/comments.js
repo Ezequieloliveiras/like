@@ -1,20 +1,32 @@
 import axios from 'axios'
-import React, { useState, useEffect } from 'react'
 
-import {
-  CardContent,
-  Collapse,
-  Typography,
-  Box
-} from '@mui/material'
-
-import MenuItem from '@mui/material/MenuItem'
 import EditIcon from '@mui/icons-material/Edit'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import { Delete } from '@mui/icons-material'
 
-import { ExpandMore, StyledMenu } from './styles'
+import React,
+{
+  useState,
+  useEffect
+} from 'react'
+
+import {
+  CardContent,
+  Collapse,
+  Typography,
+  MenuItem,
+  Grid,
+  Divider
+} from '@mui/material'
+
+import {
+  ExpandMore,
+  StyledMenu,
+  StyledBoxComment,
+  StyledContents,
+  StyledDivMenu
+} from './styles'
 
 function Comments() {
   const [anchorEl, setAnchorEl] = useState(null)
@@ -62,32 +74,46 @@ function Comments() {
       console.error("Erro ao excluir usuário:", error)
     }
   }
+
   return (
 
-    <div>
+    <div style={{padding:'none'}}>
 
       <ExpandMore
         onClick={handleExpandClick}
         aria-expanded={expanded}
       >
-        <Typography variant='subtitle2'>{users.length} comentários</Typography>
+
+        <Typography
+          variant='subtitle2'
+        >
+          {users.length} comentários
+        </Typography>
+
       </ExpandMore>
 
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
+      <Collapse
+        in={expanded}
+        timeout="auto"
+        unmountOnExit
+      >
+        <CardContent sx={{padding:'0px'}}>
+
+        <Divider />
+        <br />
           {users.map(user => (
 
-            <Box sx={{
-              border: '1px solid #9e9e9e',
-              borderRadius: '5px',
-              padding: '10px',
-            }} key={user._id}>
+            <StyledBoxComment key={user._id}>
 
-              <div style={{ display: 'flex' }}>
+              <StyledContents>
 
-                <Typography>Ezequiel</Typography>
+                <Typography
+                  variant='subtitle1'
+                  fontWeight='bold'>
+                  Ezequiel
+                </Typography>
 
-                <div style={{ width: '100%', display: 'flex' }}>
+                <StyledDivMenu>
 
                   <MoreHorizIcon sx={{ marginLeft: 'auto' }}
                     position="relative"
@@ -113,27 +139,42 @@ function Comments() {
                     open={open}
                     onClose={handleClose}
                   >
-                    <MenuItem onClick={handleClose} disableRipple>
+                    <MenuItem
+                      onClick={handleClose}
+                      disableRipple
+                    >
                       <EditIcon />
                       Edit
                     </MenuItem>
-                    <MenuItem onClick={() => deleteUser(user._id)} >
+
+                    <MenuItem
+                      onClick={() => deleteUser(user._id)}
+                    >
                       <Delete />
                       Exluir
                     </MenuItem>
 
                   </StyledMenu>
-                </div>
-              </div>
+
+                </StyledDivMenu>
+
+              </StyledContents>
+
               <div>
                 <Typography>
 
                   {user.comment}
+
                 </Typography>
+
               </div>
-            </Box>
+
+            </StyledBoxComment>
+
           ))}
+
         </CardContent>
+
       </Collapse>
 
     </div>
