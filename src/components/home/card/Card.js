@@ -1,8 +1,10 @@
-import Coment from '../coment/Coment'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import ShareIcon from '@mui/icons-material/Share'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
 import { red } from '@mui/material/colors'
+
+import CommentField from '../commentField/Coment'
+import ListComments from '../getListComments/comments'
 
 import {
   Card,
@@ -55,7 +57,8 @@ export default function RecipeReviewCard() {
           <ShareIcon />
         </IconButton>
       </CardActions>
-      <Coment />
+      <CommentField />
+      <ListComments/>
     </Card>
   )
 }
