@@ -3,8 +3,8 @@ import ShareIcon from '@mui/icons-material/Share'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
 import { red } from '@mui/material/colors'
 
-import CommentField from '../postCommentField/Coment'
-import ListComments from '../listComments/comments'
+import CommentField from '../pushComment/Coment'
+import ListComments from '../listComments/Comments'
 
 import {
   Card,
@@ -20,7 +20,7 @@ import {
 export default function RecipeReviewCard() {
 
   return (
-    <Card sx={{ width: '100%' }}>
+    <Card sx={{ width: '100%', position:'relative' }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -58,7 +58,7 @@ export default function RecipeReviewCard() {
         </IconButton>
       </CardActions>
       <CommentField />
-      <ListComments/>
+      <ListComments />
 
     </Card>
   )

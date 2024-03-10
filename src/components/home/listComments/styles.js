@@ -1,5 +1,48 @@
 import styled from 'styled-components'
 import { TextareaAutosize } from '@mui/base'
+import Menu from '@mui/material/Menu';
+import { grey } from '@mui/material/colors';
+
+
+const StyledMenu = styled((props) => (
+    props.open && ( // Verifica se a propriedade 'open' é verdadeira
+      <Menu
+        elevation={0}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        {...props}
+      />
+    )
+  ))(({ theme }) => ({
+    '& .MuiPaper-root': {
+      borderRadius: 6,
+      marginTop: 10,
+      minWidth: 180,
+      color: grey,
+      boxShadow:
+        'rgb(255, 255, 255) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',
+      '& .MuiMenu-list': {
+        padding: '4px 0',
+      },
+      '& .MuiMenuItem-root': {
+        '& .MuiSvgIcon-root': {
+          fontSize: 18,
+          color: 'grey',
+          marginRight: 10,
+        },
+        '&:active': {
+          backgroundColor: '#ffffff',
+        },
+      },
+    },
+  }))
+
 
 const StyledTextareaAutosize = styled(TextareaAutosize)`
     resize: none;
@@ -35,5 +78,6 @@ const ExpandMore = styled((props) => {
 export {
     ExpandMore,
     StyledButton,
-    StyledTextareaAutosize
+    StyledTextareaAutosize,
+    StyledMenu
 }
