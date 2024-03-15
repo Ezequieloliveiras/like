@@ -6,6 +6,8 @@ import {
   Grid,
 } from '@mui/material'
 
+import Carousel from './carousel/Carousel'
+
 const StyledConatiner = styled(Container)`
 
  && { 
@@ -20,6 +22,7 @@ const PageInitial = () => {
   return (
     <>
       <StyledConatiner maxWidth='md'>
+        <Carousel />
         <Grid container spacing={1} sx={{
           display: 'flex', justifyContent: 'center', paddingLeft: '0px',
           paddingRight: '0px'
