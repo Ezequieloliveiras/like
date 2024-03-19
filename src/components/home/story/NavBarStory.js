@@ -1,6 +1,8 @@
-import { Box, IconButton } from "@mui/material";
+
+import { Box } from "@mui/material";
 import styled from "styled-components";
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
+import './styles.css'
 
 const HistoryEvents = styled.div`
   height: 60px;
@@ -27,32 +29,32 @@ const StyledBox = styled(Box)`
   overflow-x: auto;
   overflow: hidden;
   width: auto;
-
-`;
-
-const ScrollButton = styled(IconButton)`
-  && {position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 20px;
-  width: 20px;
-  background-color: aliceblue;
-  }
 `;
 
 const Storys = () => {
+  const isMobile = window.innerWidth <= 768
+
   return (
     <>
-      <div style={{ height: '100px', position: 'relative' }}>
-        <ScrollButton
+      <div
+        style={{
+          height: '100px',
+          position: 'relative',
+          display: 'flex',
+          alignItems: 'center'
+        }}
+        >
+        <button
+          className="buttonLeft"
           onClick={() => {
             const container = document.getElementById("scroll-container");
             if (container) container.scrollLeft -= 100;
           }}
           style={{ left: 0 }}
+          hideOnMobile={isMobile}
         >
           <KeyboardArrowLeft />
-        </ScrollButton>
+        </button>
         <StyledBox id="scroll-container">
           <div>
             <HistoryEvents>
@@ -103,44 +105,45 @@ const Storys = () => {
           </div>
           <div>
             <HistoryEvents>
-              <Img src="https://source.unsplash.com/random?=1" />
+              <Img src="https://source.unsplash.com/random?=11" />
             </HistoryEvents>
           </div>
           <div>
             <HistoryEvents>
-              <Img src="https://source.unsplash.com/random?=1" />
+              <Img src="https://source.unsplash.com/random?=12" />
             </HistoryEvents>
           </div>
           <div>
             <HistoryEvents>
-              <Img src="https://source.unsplash.com/random?=1" />
+              <Img src="https://source.unsplash.com/random?=13" />
             </HistoryEvents>
           </div>       <div>
             <HistoryEvents>
-              <Img src="https://source.unsplash.com/random?=1" />
+              <Img src="https://source.unsplash.com/random?=14" />
             </HistoryEvents>
           </div>
           <div>
             <HistoryEvents>
-              <Img src="https://source.unsplash.com/random?=1" />
+              <Img src="https://source.unsplash.com/random?=15" />
             </HistoryEvents>
           </div>
           <div>
             <HistoryEvents>
-              <Img src="https://source.unsplash.com/random?=1" />
+              <Img src="https://source.unsplash.com/random?=16" />
             </HistoryEvents>
           </div>
         </StyledBox>
-        <ScrollButton
-          aria-label="scroll right"
+        <button className="buttonRight"
+
           onClick={() => {
             const container = document.getElementById("scroll-container");
             if (container) container.scrollLeft += 100;
           }}
           style={{ right: 0 }}
+          hideOnMobile={isMobile}
         >
           <KeyboardArrowRight />
-        </ScrollButton>
+        </button>
       </div>
     </>
   );

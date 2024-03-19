@@ -1,0 +1,83 @@
+.buttonLeft {
+border: none;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonLeft:hover,
+.buttonRight:hover {
+  background-color: #90caf9;
+}
+
+.buttonRight {
+    border: none;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+
+    .buttonLeft,
+    .buttonRight {
+
+        display: none;
+        /* Oculta os botões de rolagem */
+    }
+
+    #scroll-container {
+        overflow-x: auto;
+        /* Habilita a barra de rolagem horizontal */
+        overflow-y: hidden;
+        /* Esconde a barra de rolagem vertical */
+        scrollbar-width: thin;
+        /* Largura fina da barra de rolagem */
+        scrollbar-color: #90caf9 transparent;
+        /* Cor da barra de rolagem e cor do fundo do track */
+    }
+
+    /* Este seletor estiliza a barra de rolagem no Chrome, Safari e Edge */
+    #scroll-container::-webkit-scrollbar {
+        width: 6px;
+        /* Largura da barra de rolagem */
+        height: 6px;
+        /* Altura da barra de rolagem */
+    }
+
+    /* Este seletor estiliza o track da barra de rolagem no Chrome, Safari e Edge */
+    #scroll-container::-webkit-scrollbar-track {
+        background: transparent;
+        /* Cor do fundo do track */
+    }
+
+    /* Este seletor estiliza o thumb (alça) da barra de rolagem no Chrome, Safari e Edge */
+    #scroll-container::-webkit-scrollbar-thumb {
+        background-color: #90caf9;
+        /* Cor do thumb (alça) */
+        border-radius: 3px;
+        /* Arredonda os cantos do thumb (alça) */
+    }
+
+    /* Este seletor estiliza a barra de rolagem no Firefox */
+    #scroll-container::-moz-scrollbar {
+        width: 6px;
+        /* Largura da barra de rolagem */
+        height: 6px;
+        /* Altura da barra de rolagem */
+    }
+
+    /* Este seletor estiliza o thumb (alça) da barra de rolagem no Firefox */
+    #scroll-container::-moz-scrollbar-thumb {
+        background-color: #90caf9;
+        /* Cor do thumb (alça) */
+        border-radius: 3px;
+        /* Arredonda os cantos do thumb (alça) */
+    }
+}
