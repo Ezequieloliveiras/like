@@ -4,7 +4,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert'
 import { red } from '@mui/material/colors'
 
 import CommentField from '../pushComment/Coment'
-import ListComments from '../listComments/Comments'
+import ListComments from '../../home/listComments/Comments'
 
 import {
   Card,
