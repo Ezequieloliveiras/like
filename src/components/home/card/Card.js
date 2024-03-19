@@ -59,7 +59,6 @@ export default function RecipeReviewCard() {
       </CardActions>
       <CommentField />
       <ListComments />
-
     </Card>
   )
 }

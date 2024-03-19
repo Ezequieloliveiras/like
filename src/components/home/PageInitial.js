@@ -3,10 +3,12 @@ import Card from './card/Card'
 
 import {
   Container,
+  Divider,
   Grid,
 } from '@mui/material'
 
 import Carousel from './carousel/Carousel'
+import NavBarStory from './story/NavBarStory'
 
 const StyledConatiner = styled(Container)`
 
@@ -22,6 +24,8 @@ const PageInitial = () => {
   return (
     <>
       <StyledConatiner maxWidth='md'>
+        <NavBarStory />
+        <Divider />
         <Carousel />
         <Grid container spacing={1} sx={{
           display: 'flex', justifyContent: 'center', paddingLeft: '0px',
