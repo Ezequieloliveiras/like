@@ -1,7 +1,7 @@
 
-import { Box } from "@mui/material";
-import styled from "styled-components";
-import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
+import { Box } from "@mui/material"
+import styled from "styled-components"
+import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material"
 import './styles.css'
 
 const HistoryEvents = styled.div`
@@ -32,7 +32,7 @@ const StyledBox = styled(Box)`
 `;
 
 const Storys = () => {
-  const isMobile = window.innerWidth <= 768
+
 
   return (
     <>
@@ -50,10 +50,8 @@ const Storys = () => {
             const container = document.getElementById("scroll-container");
             if (container) container.scrollLeft -= 100;
           }}
-          style={{ left: 0 }}
-          hideOnMobile={isMobile}
         >
-          <KeyboardArrowLeft />
+          <KeyboardArrowLeft sx={{color:'grey'}}/>
         </button>
         <StyledBox id="scroll-container">
           <div>
@@ -134,15 +132,12 @@ const Storys = () => {
           </div>
         </StyledBox>
         <button className="buttonRight"
-
           onClick={() => {
             const container = document.getElementById("scroll-container");
             if (container) container.scrollLeft += 100;
           }}
-          style={{ right: 0 }}
-          hideOnMobile={isMobile}
         >
-          <KeyboardArrowRight />
+          <KeyboardArrowRight sx={{color:'grey'}}/>
         </button>
       </div>
     </>
