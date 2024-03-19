@@ -4,7 +4,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert'
 import { red } from '@mui/material/colors'
 
 import CommentField from '../pushComment/Coment'
-import ListComments from '../../home/listComments/Comments'
+import ListComments from '../comments/ListComment'
 
 import {
   Card,
@@ -17,7 +17,8 @@ import {
   Typography,
 } from '@mui/material'
 
-export default function RecipeReviewCard() {
+
+function RecipeReviewCard() {
 
   return (
     <Card sx={{ width: '100%'}}>
@@ -62,3 +63,7 @@ export default function RecipeReviewCard() {
     </Card>
   )
 }
+
+
+
+export default RecipeReviewCard

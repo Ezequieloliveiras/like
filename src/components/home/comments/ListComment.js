@@ -27,7 +27,7 @@ import {
   StyledDivMenu
 } from './styles'
 
-function Comments() {
+function FieldComment() {
   const [anchorEl, setAnchorEl] = useState(null)
   const [expanded, setExpanded] = useState(false)
   const [users, setUsers] = useState([])
@@ -180,4 +180,4 @@ function Comments() {
   )
 }
 
-export default Comments
+export default FieldComment
