@@ -2,7 +2,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite'
 import ShareIcon from '@mui/icons-material/Share'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
 import { red } from '@mui/material/colors'
-
+import styled from 'styled-components'
 import CommentField from '../pushComment/Coment'
 import ListComments from '../comments/ListComment'
 
@@ -16,6 +16,15 @@ import {
   IconButton,
   Typography,
 } from '@mui/material'
+
+
+const StyledCardMedia = styled(CardMedia) `
+  height: 800;
+
+  @media (max-width: 767px) {
+    height: 400px;
+  }
+`
 
 function RecipeReviewCard() {
 
@@ -36,12 +45,11 @@ function RecipeReviewCard() {
         subheader="September 14, 2016"
       />
      
-      <CardMedia
+      <StyledCardMedia
         component="img"
-        height="800"
         alt="Paella dish"
         image={'https://source.unsplash.com/random'}
-        sx={{objectFit:'div', height:'700px'}}
+        sx={{objectFit:'div', height:'800px'}}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">

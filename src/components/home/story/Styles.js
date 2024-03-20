@@ -18,6 +18,11 @@ const HistoryEvents = styled.div`
   align-items: center;
   display: flex;
   margin: 0 10px;
+
+  @media (min-width: 769px) {
+   height: 60px !important;
+   width: 60px !important;
+}
 `;
 
 const Img = styled.img`
