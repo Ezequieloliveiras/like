@@ -1,49 +1,22 @@
+import {
+  KeyboardArrowLeft,
+  KeyboardArrowRight
+} from "@mui/icons-material"
 
-import { Box } from "@mui/material"
-import styled from "styled-components"
-import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material"
+import {
+  StyledBox,
+  Container,
+  Img,
+  HistoryEvents
+} from "./Styles"
+
 import './styles.css'
-
-const HistoryEvents = styled.div`
-  height: 60px;
-  width: 60px;
-  border: 2px solid #90caf9;
-  border-radius: 100%;
-  overflow: hidden;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  margin: 0 10px;
-`;
-
-const Img = styled.img`
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-`;
-
-const StyledBox = styled(Box)`
-  height: 100px;
-  display: flex;
-  align-items: center;
-  overflow-x: auto;
-  overflow: hidden;
-  width: auto;
-`;
 
 const Storys = () => {
 
-
   return (
     <>
-      <div
-        style={{
-          height: '100px',
-          position: 'relative',
-          display: 'flex',
-          alignItems: 'center'
-        }}
-        >
+      <Container>
         <button
           className="buttonLeft"
           onClick={() => {
@@ -51,7 +24,7 @@ const Storys = () => {
             if (container) container.scrollLeft -= 100;
           }}
         >
-          <KeyboardArrowLeft sx={{color:'grey'}}/>
+          <KeyboardArrowLeft sx={{ color: 'grey' }} />
         </button>
         <StyledBox id="scroll-container">
           <div>
@@ -137,9 +110,9 @@ const Storys = () => {
             if (container) container.scrollLeft += 100;
           }}
         >
-          <KeyboardArrowRight sx={{color:'grey'}}/>
+          <KeyboardArrowRight sx={{ color: 'grey' }} />
         </button>
-      </div>
+      </Container>
     </>
   );
 };
