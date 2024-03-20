@@ -9,8 +9,8 @@ const Container = styled.div`
 `;
 
 const HistoryEvents = styled.div`
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  width: 80px;
   border: 2px solid #90caf9;
   border-radius: 100%;
   overflow: hidden;
@@ -27,7 +27,7 @@ const Img = styled.img`
 `;
 
 const StyledBox = styled(Box)`
-  height: 100px;
+  height: auto;
   display: flex;
   align-items: center;
   overflow-x: auto;
