@@ -22,7 +22,7 @@ const StyledCardMedia = styled(CardMedia) `
   height: 800;
 
   @media (max-width: 767px) {
-    height: 400px;
+    height: 500px;
   }
 `
 

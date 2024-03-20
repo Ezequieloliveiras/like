@@ -26,7 +26,7 @@ const StyledCardMedia = styled(CardMedia)`
   
 export default () => {
     return (
-        <Swiper style={{ margin:'20px 3px 0px 3px' }}
+        <Swiper style={{ margin:'16px 3px 0px 3px' }}
             modules={[Navigation, Pagination, A11y, Autoplay]}
             spaceBetween={30}
             slidesPerView={3}
