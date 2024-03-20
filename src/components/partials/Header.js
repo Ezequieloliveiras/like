@@ -1,21 +1,23 @@
 import { useState } from 'react'
+import LocationOnIcon from '@mui/icons-material/LocationOn'
 
 import {
-  AppBar,
   Box,
-  Toolbar,
   IconButton,
   Typography,
   Menu,
-  Container,
   Avatar,
-  Button,
   Tooltip,
   MenuItem,
 } from '@mui/material'
 
-
-import LocationOnIcon from '@mui/icons-material/LocationOn'
+import {   
+  StyledAppBar,
+  StyledBoxAvatar,
+  StyledConatiner,
+  StyledToolbar,
+  StyledTypography,
+} from './StylesHeader'
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
 
@@ -32,44 +34,26 @@ function ResponsiveAppBar() {
   }
 
   return (
-    <AppBar position="static"
-      sx={{
-        backgroundColor: '#1A237E'
-      }}
-    >
-      <Container maxWidth="xl" >
-        <Toolbar disableGutters
-          sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            width: '100%'
-          }}
-        >
+    <StyledAppBar position="static">
+      <StyledConatiner maxWidth="xl" >
+        <StyledToolbar disableGutters>
           <LocationOnIcon />
           <Box>
-            <Typography
+            <StyledTypography
               variant="h5"
               noWrap
               component="a"
               href="#app-bar-with-responsive-menu"
-              sx={{
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
-                textDecoration: 'none',
-                display: 'fflex'
-              }}
             >
               AURA
-            </Typography>
+            </StyledTypography>
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
+          <StyledBoxAvatar>
             <Tooltip title="Open settings">
               <IconButton
                 onClick={handleOpenUserMenu}
-                sx={{ p: 0 }}>
+                >
                 <Avatar
                   alt="Remy Sharp"
                   src="/static/images/avatar/2.jpg"
@@ -77,7 +61,6 @@ function ResponsiveAppBar() {
               </IconButton>
             </Tooltip>
             <Menu
-              sx={{ mt: '45px' }}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
@@ -103,11 +86,10 @@ function ResponsiveAppBar() {
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
-
+          </StyledBoxAvatar>
+        </StyledToolbar>
+      </StyledConatiner>
+    </StyledAppBar>
   )
 }
 export default ResponsiveAppBar
