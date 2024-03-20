@@ -7,25 +7,24 @@ import {
   StyledBox,
   Container,
   Img,
-  HistoryEvents
+  HistoryEvents,
+  ButtonNext,
 } from "./Styles"
-
-import './styles.css'
 
 const Storys = () => {
 
   return (
     <>
       <Container>
-        <button
+        <ButtonNext
           className="buttonLeft"
           onClick={() => {
-            const container = document.getElementById("scroll-container");
-            if (container) container.scrollLeft -= 100;
+            const container = document.getElementById("scroll-container")
+            if (container) container.scrollLeft -= 100
           }}
         >
           <KeyboardArrowLeft sx={{ color: 'grey' }} />
-        </button>
+        </ButtonNext>
         <StyledBox id="scroll-container">
           <div>
             <HistoryEvents>
@@ -104,17 +103,17 @@ const Storys = () => {
             </HistoryEvents>
           </div>
         </StyledBox>
-        <button className="buttonRight"
+        <ButtonNext 
           onClick={() => {
-            const container = document.getElementById("scroll-container");
-            if (container) container.scrollLeft += 100;
+            const container = document.getElementById("scroll-container")
+            if (container) container.scrollLeft += 100
           }}
         >
           <KeyboardArrowRight sx={{ color: 'grey' }} />
-        </button>
+        </ButtonNext>
       </Container>
     </>
-  );
-};
+  )
+}
 
-export default Storys;
+export default Storys
