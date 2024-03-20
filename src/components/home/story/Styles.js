@@ -33,6 +33,7 @@ const StyledBox = styled(Box)`
   overflow-x: auto;
   overflow: hidden;
   width: auto;
+  padding-bottom: 10px;
 `;
 
 export {
