@@ -41,7 +41,7 @@ border: none;
         /* Largura fina da barra de rolagem */
         scrollbar-color: #90caf9 transparent;
         /* Cor da barra de rolagem e cor do fundo do track */
-        height: 110px;
+        padding: 15px 0px;
     }
 
     /* Este seletor estiliza a barra de rolagem no Chrome, Safari e Edge */

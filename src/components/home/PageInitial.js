@@ -25,8 +25,7 @@ const PageInitial = () => {
     <>
       <StyledConatiner maxWidth='md'>
         <NavBarStory />
-        <br />
-        <Divider />
+        <Divider sx={{marginTop:'10px'}}/>
         <Carousel />
         <Grid container spacing={1} sx={{
           display: 'flex', justifyContent: 'center', paddingLeft: '0px',
