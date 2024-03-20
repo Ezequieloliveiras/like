@@ -17,7 +17,6 @@ import {
   Typography,
 } from '@mui/material'
 
-
 function RecipeReviewCard() {
 
   return (
@@ -36,11 +35,13 @@ function RecipeReviewCard() {
         title="Shrimp and Chorizo Paella"
         subheader="September 14, 2016"
       />
+     
       <CardMedia
         component="img"
-        height="500"
+        height="800"
         alt="Paella dish"
         image={'https://source.unsplash.com/random'}
+        sx={{objectFit:'div', height:'700px'}}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
