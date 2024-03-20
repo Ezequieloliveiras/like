@@ -49,7 +49,7 @@ function RecipeReviewCard() {
         component="img"
         alt="Paella dish"
         image={'https://source.unsplash.com/random'}
-        sx={{objectFit:'div', height:'800px'}}
+        sx={{objectFit:'div', height:'600px'}}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
