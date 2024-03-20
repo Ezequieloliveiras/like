@@ -13,7 +13,7 @@ import NavBarStory from './story/NavBarStory'
 const StyledConatiner = styled(Container)`
 
  && { 
-    padding-top: 50px;
+    padding-top: 10px;
     padding-bottom: 50px;
     padding-left: 0px;
     padding-right: 0px;
