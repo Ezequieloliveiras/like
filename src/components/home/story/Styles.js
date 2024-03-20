@@ -9,8 +9,8 @@ const Container = styled.div`
 `;
 
 const HistoryEvents = styled.div`
-  height: 60px;
-  width: 60px;
+  height: 100px;
+  width: 100px;
   border: 2px solid #90caf9;
   border-radius: 100%;
   overflow: hidden;
