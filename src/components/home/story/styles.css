@@ -22,7 +22,13 @@ border: none;
     justify-content: center;
     align-items: center;
 }
+@media (min-width: 769px) {
+.historyEvents {
+    height: 60px !important;
+    width: 60px !important;
+}
 
+}
 @media (max-width: 768px) {
 
     .buttonLeft,
