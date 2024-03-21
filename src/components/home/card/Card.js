@@ -17,7 +17,6 @@ import {
   Typography,
 } from '@mui/material'
 
-
 const StyledCardMedia = styled(CardMedia) `
   height: 800;
 

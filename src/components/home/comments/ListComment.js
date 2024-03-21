@@ -43,7 +43,9 @@ function FieldComment() {
   }
 
   const handleExpandClick = () => {
-    setExpanded(!expanded)
+    if(users.length > 0) {
+      setExpanded(!expanded)
+    }
   }
 
   useEffect(() => {
@@ -76,7 +78,7 @@ function FieldComment() {
 
   return (
 
-    <div style={{padding:'none'}}>
+    <div style={{ padding: 'none' }}>
 
       <ExpandMore
         onClick={handleExpandClick}
@@ -96,10 +98,8 @@ function FieldComment() {
         timeout="auto"
         unmountOnExit
       >
-        <CardContent sx={{padding:'0px'}}>
-
-        <Divider />
-        <br />
+        <CardContent sx={{ padding: '0px' }}>
+          <br />
           {users.map(user => (
 
             <StyledBoxComment key={user._id}>
