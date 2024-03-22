@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 import { Collapse, Typography } from '@mui/material'
 
@@ -22,10 +22,12 @@ function FieldComment() {
   const [expanded, setExpanded] = useState(false)
   const [users, setUsers] = useState([])
 
-  const [visibleUserDiv, setVisibleUserDiv] = useState(null);
+  const [visibleUserDiv, setVisibleUserDiv] = useState(null)
+
+  const menuRef = useRef(null)
 
   const toggleVisibility = (userId) => {
-    setVisibleUserDiv(userId === visibleUserDiv ? null : userId);
+    setVisibleUserDiv(userId === visibleUserDiv ? null : userId)
   }
 
   const handleExpandClick = () => {
@@ -59,6 +61,28 @@ function FieldComment() {
     }
   }
 
+  const updateUser = async (id) => {
+    // Aqui você precisaria implementar a lógica para atualizar o usuário com o ID fornecido
+    // Isso pode envolver um formulário para editar os dados do usuário e enviar uma requisição PUT ou PATCH para a API com os dados atualizados
+    console.log("Função updateUser ainda não implementada.")
+  }
+  
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setVisibleUserDiv(null)
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [])
+
+
+
+
   return (
 
     <div style={{ padding: 'none' }}>
@@ -85,9 +109,9 @@ function FieldComment() {
           <br />
           {users.map(user => (
 
-            <StyledBoxComment >
+            <StyledBoxComment  key={user._id}>
 
-              <Container key={user._id}>
+              <Container>
 
                 <Typography
                   fontWeight='bold'
@@ -95,7 +119,7 @@ function FieldComment() {
                   Ezequiel
                 </Typography>
 
-                <StyledDivMenu >
+                <StyledDivMenu ref={menuRef}>
 
                   <StyledMoreHorizIcon
                     onClick={() => toggleVisibility(user._id)}
@@ -112,7 +136,7 @@ function FieldComment() {
                       </StyledMenuItem>
 
                       <StyledMenuItem
-                        onClick={() => udateUser(user._id)}
+                       onClick={() => updateUser(user._id)}
                       >
                         <StyledEdit />
                         Editar
