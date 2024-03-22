@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { TextareaAutosize } from '@mui/base'
 import { grey } from '@mui/material/colors'
-import {Box,Menu} from '@mui/material'
+import { Box, Menu } from '@mui/material'
 
 const StyledTextareaAutosize = styled(TextareaAutosize)`
     resize: none;
@@ -22,55 +22,27 @@ const StyledButton = styled.button`
   padding-bottom: 10px ;
 `
 const ExpandMore = styled((props) => {
-    const { expand, ...other } = props
-    return <button {...other} />
+  const { expand, ...other } = props
+  return <button {...other} />
 })(() => ({
-    display: 'flex',
-    marginLeft: 'auto',
-    background: 'none',
-    border: 'none',
-   marginBottom:'10px',
-    color: '#616161',
+  display: 'flex',
+  marginLeft: 'auto',
+  background: 'none',
+  border: 'none',
+  marginBottom: '10px',
+  color: '#616161',
 }));
 
-const StyledMenu = styled((props) => (
-  props.open && ( // Verifica se a propriedade 'open' é verdadeira
-    <Menu
-      elevation={0}
-      anchorOrigin={{
-        vertical: 'bottom',
-        horizontal: 'right',
-      }}
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      {...props}
-    />
-  )
-))(({ theme }) => ({
-  '& .MuiPaper-root': {
-    borderRadius: 6,
-    marginTop: 10,
-    minWidth: 180,
-    color: grey,
-    boxShadow:
-      'rgb(255, 255, 255) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',
-    '& .MuiMenu-list': {
-      padding: '4px 0',
-    },
-    '& .MuiMenuItem-root': {
-      '& .MuiSvgIcon-root': {
-        fontSize: 18,
-        color: 'grey',
-        marginRight: 10,
-      },
-      '&:active': {
-        backgroundColor: '#ffffff',
-      },
-    },
-  },
-}))
+const DrawerMenu = styled.div`
+    position: absolute;
+    margin-top: 20px;
+    margin-left: auto;
+    right: 3%;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px black;
+    z-Index: 1  ;    
+`
 
 const StyledBoxComment = styled(Box)`
   border: 1px solid #9e9e9e;
@@ -89,11 +61,11 @@ const StyledDivMenu = styled.div`
 `
 
 export {
-    ExpandMore,
-    StyledButton,
-    StyledTextareaAutosize,
-    StyledMenu,
-    StyledBoxComment,
-    StyledContents,
-    StyledDivMenu,
+  ExpandMore,
+  StyledButton,
+  StyledTextareaAutosize,
+  DrawerMenu,
+  StyledBoxComment,
+  StyledContents,
+  StyledDivMenu,
 }

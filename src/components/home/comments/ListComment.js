@@ -1,9 +1,7 @@
 import axios from 'axios'
 
-import EditIcon from '@mui/icons-material/Edit'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
-import { Delete } from '@mui/icons-material'
+import { Delete, Edit } from '@mui/icons-material'
 
 import React,
 {
@@ -21,29 +19,25 @@ import {
 
 import {
   ExpandMore,
-  StyledMenu,
+  DrawerMenu,
   StyledBoxComment,
   StyledContents,
   StyledDivMenu
 } from './styles'
 
 function FieldComment() {
-  const [anchorEl, setAnchorEl] = useState(null)
+
   const [expanded, setExpanded] = useState(false)
   const [users, setUsers] = useState([])
 
-  const open = Boolean(anchorEl)
+  const [visibleUserDiv, setVisibleUserDiv] = useState(null);
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget)
-  }
-
-  const handleClose = () => {
-    setAnchorEl(null)
+  const toggleVisibility = (userId) => {
+    setVisibleUserDiv(userId === visibleUserDiv ? null : userId);
   }
 
   const handleExpandClick = () => {
-    if(users.length > 0) {
+    if (users.length > 0) {
       setExpanded(!expanded)
     }
   }
@@ -62,14 +56,11 @@ function FieldComment() {
     Users()
   }, [users]) // com users atualiza sempre o estado
 
-  const deleteUser = async (userId) => {
+  const deleteUser = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/api/usuarios/${userId}`)
+      await axios.delete(`http://localhost:8080/api/usuarios/${id}`)
       // Atualizar a lista de usuários após a exclusão
-      const updatedUsers = users.filter(user => user._id !== userId)
-
-      setUsers(updatedUsers)
-      handleClose()
+      setUsers(users.filter(user => user._id !== id))
 
     } catch (error) {
       console.error("Erro ao excluir usuário:", error)
@@ -102,72 +93,35 @@ function FieldComment() {
           <br />
           {users.map(user => (
 
-            <StyledBoxComment key={user._id}>
+            <StyledBoxComment >
 
-              <StyledContents>
+              <div style={{ display: 'flex', width: '100%' }} key={user._id}>
+                <Typography fontWeight='bold'>Ezequiel</Typography>
 
-                <Typography
-                  variant='subtitle1'
-                  fontWeight='bold'>
-                  Ezequiel
-                </Typography>
+                <StyledDivMenu style={{ position: 'relative' }}>
+                  <MoreHorizIcon onClick={() => toggleVisibility(user._id)} sx={{ marginLeft: 'auto' }} />
 
-                <StyledDivMenu>
-
-                  <MoreHorizIcon sx={{ marginLeft: 'auto' }}
-                    position="relative"
-                    id="demo-customized-button"
-                    aria-controls={open ? 'demo-customized-menu' : undefined}
-                    aria-haspopup="true"
-                    aria-expanded={open ? 'true' : undefined}
-                    variant="contained"
-                    disableElevation
-                    onClick={handleClick}
-                    endIcon={<KeyboardArrowDownIcon />}
-                  >
-
-                  </MoreHorizIcon>
-
-                  <StyledMenu
-                    position="absolute"
-                    id="demo-customized-menu"
-                    MenuListProps={{
-                      'aria-labelledby': 'demo-customized-button',
-                    }}
-                    anchorEl={anchorEl}
-                    open={open}
-                    onClose={handleClose}
-                  >
-                    <MenuItem
-                      onClick={handleClose}
-                      disableRipple
-                    >
-                      <EditIcon />
-                      Edit
-                    </MenuItem>
-
-                    <MenuItem
-                      onClick={() => deleteUser(user._id)}
-                    >
-                      <Delete />
-                      Exluir
-                    </MenuItem>
-
-                  </StyledMenu>
-
+                  {visibleUserDiv === user._id && (
+                    <DrawerMenu>
+                      <MenuItem sx={{fontSize:' 15px'}}
+                        onClick={() => deleteUser(user._id)}
+                      >
+                        <Delete sx={{fontSize:' 20px', paddingRight:'5px'}}/>
+                          Exluir
+                      </MenuItem>
+                      <MenuItem  sx={{fontSize:' 15px'}}
+                        onClick={() => udateUser(user._id)}
+                      >
+                        <Edit sx={{fontSize:' 20px', paddingRight:'5px'}}/>
+                        Editar
+                      </MenuItem>
+                    </DrawerMenu>
+                  )}
                 </StyledDivMenu>
-
-              </StyledContents>
-
-              <div>
-                <Typography>
-
-                  {user.comment}
-
-                </Typography>
-
               </div>
-
+              <Typography>
+                {user.comment}
+              </Typography>
             </StyledBoxComment>
 
           ))}
