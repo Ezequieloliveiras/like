@@ -36,7 +36,7 @@ const DrawerMenu = styled.div`
     background-color: #ffffff;
     border-radius: 5px;
     box-shadow: 0px 0px 5px 0px black;
-    z-Index: 1  ;    
+    z-index: 9999;    
 `
 const StyledMenuItem = styled(MenuItem)`
   font-size: 15px;
@@ -54,7 +54,7 @@ const StyledBoxComment = styled(Box)`
   border: 1px solid #9e9e9e;
   border-radius: 20px;
   padding: 10px;
-  margin: 10px;
+  margin: 0px 10px 40px 10px;
 `
 
 const StyledDivMenu = styled.div`

@@ -121,7 +121,7 @@ function FieldComment() {
                   {visibleUserDiv === user._id && (
                     <DrawerMenu ref={menuRef}>
 
-                      <StyledMenuItem
+                      <StyledMenuItem 
                         onClick={() => deleteUser(user._id)}
                       >
                         <StyledDelete />
