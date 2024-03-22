@@ -1,27 +1,19 @@
 import axios from 'axios'
 
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
-import { Delete, Edit } from '@mui/icons-material'
+import React, { useState, useEffect } from 'react'
 
-import React,
-{
-  useState,
-  useEffect
-} from 'react'
+import { Collapse, Typography } from '@mui/material'
 
 import {
-  CardContent,
-  Collapse,
-  Typography,
-  MenuItem,
-  Divider
-} from '@mui/material'
-
-import {
+  StyledCardContent,
   ExpandMore,
+  Container,
   DrawerMenu,
+  StyledMenuItem,
+  StyledMoreHorizIcon,
+  StyledDelete,
+  StyledEdit,
   StyledBoxComment,
-  StyledContents,
   StyledDivMenu
 } from './styles'
 
@@ -89,44 +81,58 @@ function FieldComment() {
         timeout="auto"
         unmountOnExit
       >
-        <CardContent sx={{ padding: '0px' }}>
+        <StyledCardContent >
           <br />
           {users.map(user => (
 
             <StyledBoxComment >
 
-              <div style={{ display: 'flex', width: '100%' }} key={user._id}>
-                <Typography fontWeight='bold'>Ezequiel</Typography>
+              <Container key={user._id}>
 
-                <StyledDivMenu style={{ position: 'relative' }}>
-                  <MoreHorizIcon onClick={() => toggleVisibility(user._id)} sx={{ marginLeft: 'auto' }} />
+                <Typography
+                  fontWeight='bold'
+                >
+                  Ezequiel
+                </Typography>
+
+                <StyledDivMenu >
+
+                  <StyledMoreHorizIcon
+                    onClick={() => toggleVisibility(user._id)}
+                  />
 
                   {visibleUserDiv === user._id && (
                     <DrawerMenu>
-                      <MenuItem sx={{fontSize:' 15px'}}
+
+                      <StyledMenuItem
                         onClick={() => deleteUser(user._id)}
                       >
-                        <Delete sx={{fontSize:' 20px', paddingRight:'5px'}}/>
-                          Exluir
-                      </MenuItem>
-                      <MenuItem  sx={{fontSize:' 15px'}}
+                        <StyledDelete />
+                        Exluir
+                      </StyledMenuItem>
+
+                      <StyledMenuItem
                         onClick={() => udateUser(user._id)}
                       >
-                        <Edit sx={{fontSize:' 20px', paddingRight:'5px'}}/>
+                        <StyledEdit />
                         Editar
-                      </MenuItem>
+                      </StyledMenuItem>
+
                     </DrawerMenu>
                   )}
                 </StyledDivMenu>
-              </div>
+
+              </Container>
+
               <Typography>
                 {user.comment}
               </Typography>
+
             </StyledBoxComment>
 
           ))}
 
-        </CardContent>
+        </StyledCardContent>
 
       </Collapse>
 
