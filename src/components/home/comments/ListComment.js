@@ -29,18 +29,18 @@ function FieldComment() {
   const toggleVisibility = (userId) => {
     setVisibleUserDiv(userId === visibleUserDiv ? null : userId)
   }
-
+  
   const handleExpandClick = () => {
     if (users.length > 0) {
       setExpanded(!expanded)
     }
   }
-
+  
   useEffect(() => {
     async function Users() {
       try {
         const response = await axios.get('http://localhost:8080/api/usuarios')
-
+        
         // Define a lista de usuários retornados pela API no estado 'users'
         setUsers(response.data)
       } catch (error) {
@@ -49,22 +49,16 @@ function FieldComment() {
     }
     Users()
   }, [users]) // com users atualiza sempre o estado
-
+  
   const deleteUser = async (id) => {
     try {
       await axios.delete(`http://localhost:8080/api/usuarios/${id}`)
       // Atualizar a lista de usuários após a exclusão
       setUsers(users.filter(user => user._id !== id))
-
+      
     } catch (error) {
       console.error("Erro ao excluir usuário:", error)
     }
-  }
-
-  const updateUser = async (id) => {
-    // Aqui você precisaria implementar a lógica para atualizar o usuário com o ID fornecido
-    // Isso pode envolver um formulário para editar os dados do usuário e enviar uma requisição PUT ou PATCH para a API com os dados atualizados
-    console.log("Função updateUser ainda não implementada.")
   }
   
   useEffect(() => {
@@ -81,10 +75,8 @@ function FieldComment() {
   }, [])
 
 
-
-
   return (
-
+    
     <div style={{ padding: 'none' }}>
 
       <ExpandMore
@@ -109,9 +101,9 @@ function FieldComment() {
           <br />
           {users.map(user => (
 
-            <StyledBoxComment  key={user._id}>
+            <StyledBoxComment >
 
-              <Container>
+              <Container key={user._id}>
 
                 <Typography
                   fontWeight='bold'
@@ -119,14 +111,15 @@ function FieldComment() {
                   Ezequiel
                 </Typography>
 
-                <StyledDivMenu ref={menuRef}>
+                <StyledDivMenu >
 
                   <StyledMoreHorizIcon
+                  
                     onClick={() => toggleVisibility(user._id)}
                   />
 
                   {visibleUserDiv === user._id && (
-                    <DrawerMenu>
+                    <DrawerMenu ref={menuRef}>
 
                       <StyledMenuItem
                         onClick={() => deleteUser(user._id)}
@@ -136,7 +129,7 @@ function FieldComment() {
                       </StyledMenuItem>
 
                       <StyledMenuItem
-                       onClick={() => updateUser(user._id)}
+                        onClick={() => updateUser(user._id)}
                       >
                         <StyledEdit />
                         Editar
