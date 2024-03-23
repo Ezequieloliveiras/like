@@ -1,8 +1,7 @@
-import axios from 'axios'
 
 import React, { useState, useEffect, useRef } from 'react'
-
 import { Collapse, Typography } from '@mui/material'
+import { getUsers, deleteUser } from '@/app/api/apis/route'
 
 import {
   StyledCardContent,
@@ -17,66 +16,61 @@ import {
   StyledDivMenu
 } from './styles'
 
+
 function FieldComment() {
 
-  const [expanded, setExpanded] = useState(false)
+  const [visibleUserDiv, setVisibleUserDiv] = useState(null) // inicialmente nenhum usuário visivel
+  const [expanded, setExpanded] = useState(false) // campo expandido ou não
   const [users, setUsers] = useState([])
-
-  const [visibleUserDiv, setVisibleUserDiv] = useState(null)
-
   const menuRef = useRef(null)
 
-  const toggleVisibility = (userId) => {
+  const toggleVisibility = (userId) => { //verifica se o userId passado é igual ao visibleUserDiv atual.
     setVisibleUserDiv(userId === visibleUserDiv ? null : userId)
   }
-  
+
   const handleExpandClick = () => {
     if (users.length > 0) {
       setExpanded(!expanded)
     }
   }
-  
+
+  const deleteComment = async (id) => {
+    try {
+      await deleteUser(id)
+      setUsers(users.filter(user => user._id !== id))
+    } catch (error) {
+      console.error('Erro ao excluir comentário:', error)
+    }
+  }
+
   useEffect(() => {
-    async function Users() {
+    async function fetchData() {
       try {
-        const response = await axios.get('http://localhost:8080/api/usuarios')
-        
-        // Define a lista de usuários retornados pela API no estado 'users'
-        setUsers(response.data)
+        const usersData = await getUsers() // Chama a função getUsers 
+        setUsers(usersData)
       } catch (error) {
         console.error('Erro ao buscar usuários:', error)
       }
     }
-    Users()
-  }, [users]) // com users atualiza sempre o estado
-  
-  const deleteUser = async (id) => {
-    try {
-      await axios.delete(`http://localhost:8080/api/usuarios/${id}`)
-      // Atualizar a lista de usuários após a exclusão
-      setUsers(users.filter(user => user._id !== id))
-      
-    } catch (error) {
-      console.error("Erro ao excluir usuário:", error)
-    }
-  }
-  
+    fetchData()
+  }, [users])
+
   useEffect(() => {
     function handleClickOutside(event) {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) { // verifica se o clique foi na referencia ou fora 
         setVisibleUserDiv(null)
       }
     }
 
-    document.addEventListener("mousedown", handleClickOutside)
+    document.addEventListener("mousedown", handleClickOutside) // adiciona o evento 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
+      document.removeEventListener("mousedown", handleClickOutside) // remove o evento
     }
   }, [])
 
 
   return (
-    
+
     <div style={{ padding: 'none' }}>
 
       <ExpandMore
@@ -114,15 +108,15 @@ function FieldComment() {
                 <StyledDivMenu >
 
                   <StyledMoreHorizIcon
-                  
+
                     onClick={() => toggleVisibility(user._id)}
                   />
 
                   {visibleUserDiv === user._id && (
                     <DrawerMenu ref={menuRef}>
 
-                      <StyledMenuItem 
-                        onClick={() => deleteUser(user._id)}
+                      <StyledMenuItem
+                        onClick={() => deleteComment(user._id)}
                       >
                         <StyledDelete />
                         Exluir

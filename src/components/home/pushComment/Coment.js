@@ -1,37 +1,35 @@
 import React, { useState } from 'react'
-import axios from 'axios'
-
 import SendIcon from '@mui/icons-material/Send'
+import { createComment } from '@/app/api/apis/route'
 
 import {
   StyledTextareaAutosize,
   StyledButton,
 } from './styles'
 
-function Coment() {
+function Comment() {
+  
   // Estado para armazenar o comentário
   const [comment, setComment] = useState('')
   // Estado para armazenar todos os comentários
-  const [comments, setComments] = useState([])
-
+ 
   // Função para lidar com a submissão do formulário
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     try {
-      // Envia o comentário para a API
-      const response = await axios.post("http://localhost:8080/api/usuarios", { comment })
-      
-      // Adiciona o novo comentário na lista de comentários
-      setComments([comment, ...comments])
+      // Envia o comentário para a API usando a função createComment
+      await createComment(comment)
+
       // Limpa o campo de comentário
       setComment('')
 
-      console.log(response) // Exibe a resposta da API no console
+      console.log("Comentário enviado com sucesso!") // Exibe a resposta da API no console
     } catch (error) {
       console.error('Erro ao enviar o comentário:', error)
     }
   }
+
 
   return (
     <div>
@@ -44,7 +42,7 @@ function Coment() {
             onChange={(e) => setComment(e.target.value)}
             placeholder="Comente sobre o evento"
           />
-          <StyledButton type="submit">
+          <StyledButton type="submit" >
             <SendIcon />
           </StyledButton>
         </div>
@@ -53,4 +51,4 @@ function Coment() {
   )
 }
 
-export default Coment
+export default Comment
