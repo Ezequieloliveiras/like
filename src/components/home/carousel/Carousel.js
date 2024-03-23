@@ -70,7 +70,7 @@ export default () => {
                     }}
                 >
                     <StyledCardMedia
-                        image="https://source.unsplash.com/random?a=1"
+                        image="https://source.unsplash.com/random?w=500&a=1"
                         title="titulo da imagem"
                         alt='image'
                     />
@@ -85,7 +85,7 @@ export default () => {
                     }}
                 >
                     <StyledCardMedia
-                        image="https://source.unsplash.com/random?a=2"
+                        image="https://source.unsplash.com/random?w=500&a=2"
                         title="titulo da imagem"
                         alt='image'
                     />
@@ -100,7 +100,7 @@ export default () => {
                     }}
                 >
                     <StyledCardMedia
-                        image="https://source.unsplash.com/random?a=3"
+                        image="https://source.unsplash.com/random?w=500&a=3"
                         title="titulo da imagem"
                         alt='image'
                     />
@@ -114,7 +114,7 @@ export default () => {
                         borderRadius: '20px'
                     }}>
                     <StyledCardMedia
-                        image="https://source.unsplash.com/random?a=4"
+                        image="https://source.unsplash.com/random?w=500&a=4"
                         title="titulo da imagem"
                         alt='image'
                     />
@@ -128,7 +128,7 @@ export default () => {
                         borderRadius: '20px'
                     }}>
                     <StyledCardMedia
-                        image="https://source.unsplash.com/random?a=5"
+                        image="https://source.unsplash.com/random?w=500&a=5"
                         title="titulo da imagem"
                         alt='image'
                     />
