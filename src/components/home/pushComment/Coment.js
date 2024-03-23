@@ -24,7 +24,6 @@ function Comment() {
       // Limpa o campo de comentário
       setComment('')
 
-      console.log("Comentário enviado com sucesso!") // Exibe a resposta da API no console
     } catch (error) {
       console.error('Erro ao enviar o comentário:', error)
     }

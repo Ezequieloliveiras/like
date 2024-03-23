@@ -4,7 +4,6 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import {
     Navigation,
     Pagination,
-    Scrollbar,
     A11y,
     Autoplay
 } from 'swiper/modules'
@@ -18,21 +17,21 @@ import 'swiper/css/autoplay'
 import styled from 'styled-components'
 
 const StyledCardMedia = styled(CardMedia)`
+&& {
     padding-top: 56%;
     width: auto;
     height: 230px;
+}
   `
 
-  
+
 export default () => {
     return (
-        <Swiper style={{ margin:'16px 3px 0px 3px' }}
+        <Swiper style={{ margin: '16px 3px 0px 3px' }}
             modules={[Navigation, Pagination, A11y, Autoplay]}
             spaceBetween={30}
             slidesPerView={3}
             autoplay={{ delay: 3000, disableOnInteraction: false }}
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log('slide change')}
             breakpoints={{
                 280: {
                     slidesPerView: 1,
@@ -66,13 +65,14 @@ export default () => {
             >
                 <Card
                     sx={{
-                       
+
                         borderRadius: '20px'
                     }}
                 >
                     <StyledCardMedia
                         image="https://source.unsplash.com/random?a=1"
                         title="titulo da imagem"
+                        alt='image'
                     />
                 </Card>
             </SwiperSlide>
@@ -87,6 +87,7 @@ export default () => {
                     <StyledCardMedia
                         image="https://source.unsplash.com/random?a=2"
                         title="titulo da imagem"
+                        alt='image'
                     />
                 </Card>
             </SwiperSlide>
@@ -101,6 +102,7 @@ export default () => {
                     <StyledCardMedia
                         image="https://source.unsplash.com/random?a=3"
                         title="titulo da imagem"
+                        alt='image'
                     />
                 </Card>
             </SwiperSlide >
@@ -112,9 +114,9 @@ export default () => {
                         borderRadius: '20px'
                     }}>
                     <StyledCardMedia
-
                         image="https://source.unsplash.com/random?a=4"
                         title="titulo da imagem"
+                        alt='image'
                     />
                 </Card>
             </SwiperSlide>
@@ -128,6 +130,7 @@ export default () => {
                     <StyledCardMedia
                         image="https://source.unsplash.com/random?a=5"
                         title="titulo da imagem"
+                        alt='image'
                     />
                 </Card>
             </SwiperSlide>

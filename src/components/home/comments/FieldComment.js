@@ -44,7 +44,7 @@ function FieldComment() {
   }
 
   useEffect(() => {
-    async function fetchData() {
+    async function listComment() {
       try {
         const usersData = await getUsers() // Chama a função getUsers 
         setUsers(usersData)
@@ -52,7 +52,7 @@ function FieldComment() {
         console.error('Erro ao buscar usuários:', error)
       }
     }
-    fetchData()
+    listComment()
   }, [users])
 
   useEffect(() => {
@@ -95,9 +95,9 @@ function FieldComment() {
           <br />
           {users.map(user => (
 
-            <StyledBoxComment >
+            <StyledBoxComment  key={user._id}>
 
-              <Container key={user._id}>
+              <Container>
 
                 <Typography
                   fontWeight='bold'
