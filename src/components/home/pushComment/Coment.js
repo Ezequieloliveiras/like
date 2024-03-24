@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import SendIcon from '@mui/icons-material/Send'
 import { createComment } from '@/app/api/apis/route'
-import Button from '@mui/material/Button';
 
 import {
   StyledTextareaAutosize,
@@ -33,7 +32,7 @@ function Comment() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} >
         <div style={{ display: 'flex' }}>
           <StyledTextareaAutosize
             name='comment'
@@ -43,7 +42,6 @@ function Comment() {
             placeholder="Comente sobre o evento"
           />
           <StyledButton >
-
             <SendIcon  type='submit' sx={{
               color: '#ffffff',
               height: '15px'
