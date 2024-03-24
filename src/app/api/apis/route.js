@@ -2,9 +2,11 @@
 
 import axios from 'axios'
 
+const baseUrl = 'https://like-api-restfull.onrender.com'
+
 export async function getUsers() {
   try {
-    const response = await axios.get('https://like-api-restfull.onrender.com/api/usuarios')
+    const response = await axios.get(`${baseUrl}/users`)
     return response.data
   } catch (error) {
     console.error('Erro ao buscar usuários:', error)
@@ -14,7 +16,7 @@ export async function getUsers() {
 
 export async function deleteUser(id) {
   try {
-    await axios.delete(`https://like-api-restfull.onrender.com/api/usuarios/${id}`)
+    await axios.delete(`${baseUrl}/${id}`)
     // Atualizar a lista de usuários após a exclusão
     
   } catch (error) {
@@ -24,13 +26,11 @@ export async function deleteUser(id) {
 
 export async function createComment(comment) {
   try {
-    await axios.post("https://like-api-restfull.onrender.com/api/usuarios", {comment})
+    await axios.post(`${baseUrl}/users`, {comment})
+
     // Atualizar a lista de usuários após a exclusão
     
   } catch (error) {
     console.error("Erro ao excluir usuário:", error)
   }
 }
-
-
-//  await axios.post("http://localhost:8080/api/usuarios", {comment})

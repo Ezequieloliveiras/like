@@ -1,4 +1,4 @@
-import mongoose, { Schema, models } from "mongoose"
+import mongoose from "mongoose"
 
 const User = new mongoose.Schema({
     comment: String,
