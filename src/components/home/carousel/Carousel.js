@@ -23,8 +23,7 @@ const StyledCardMedia = styled(CardMedia)`
     height: 230px;
 }
   `
-
-
+  
 export default () => {
     return (
         <Swiper style={{ margin: '16px 3px 0px 3px' }}
@@ -70,6 +69,7 @@ export default () => {
                     }}
                 >
                     <StyledCardMedia
+                     
                         image="https://source.unsplash.com/random?w=500&a=1"
                         title="titulo da imagem"
                         alt='image'
