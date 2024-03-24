@@ -19,7 +19,13 @@ function Comment() {
 
     try {
       // Envia o comentário para a API usando a função createComment
-      await createComment(comment)
+
+      if(comment === '') {
+        alert('Não é possível enviar com campo vazio.')
+      } else {
+        await createComment(comment)
+
+      }
 
       // Limpa o campo de comentário
       setComment('')
