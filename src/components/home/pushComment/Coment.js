@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import SendIcon from '@mui/icons-material/Send'
 import { createComment } from '@/app/api/apis/route'
+import Button from '@mui/material/Button';
 
 import {
   StyledTextareaAutosize,
@@ -8,11 +9,11 @@ import {
 } from './styles'
 
 function Comment() {
-  
+
   // Estado para armazenar o comentário
   const [comment, setComment] = useState('')
   // Estado para armazenar todos os comentários
- 
+
   // Função para lidar com a submissão do formulário
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -41,9 +42,15 @@ function Comment() {
             onChange={(e) => setComment(e.target.value)}
             placeholder="Comente sobre o evento"
           />
-          <StyledButton type="submit" >
-            <SendIcon />
+          <StyledButton >
+
+            <SendIcon  type='submit' sx={{
+              color: '#ffffff',
+              height: '15px'
+            }} />
           </StyledButton>
+
+
         </div>
       </form>
     </div>

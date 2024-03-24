@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { TextareaAutosize } from '@mui/base'
+import Button from '@mui/material/Button';
 
 const StyledTextareaAutosize = styled(TextareaAutosize)`
     resize: none;
@@ -15,9 +16,19 @@ const StyledTextareaAutosize = styled(TextareaAutosize)`
 `
 
 const StyledButton = styled.button`
-  background: none;
-  border: none;
-  padding-bottom: 10px ;
+&& {
+    display: flex;
+            align-items: center;
+            justify-content:center;
+            background-color: #000000;
+            color: #ffffff;
+            padding: 5px;
+            border-radius: 50%;
+            margin-left: 5px;
+            height: 30px;
+            width:30px;
+    
+}
 `
 
 const ExpandMore = styled((props) => {
