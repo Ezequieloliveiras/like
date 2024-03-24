@@ -9,7 +9,7 @@ const StyledTextareaAutosize = styled(TextareaAutosize)`
     padding: 7px;
     margin-left: 10px;
     margin-bottom: 10px; 
-    width: 100%;
+    width: 90%;
     font-family: sans-serif;
     font-size: 15px;
 `

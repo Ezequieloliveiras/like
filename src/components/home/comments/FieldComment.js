@@ -78,7 +78,7 @@ function FieldComment() {
         aria-expanded={expanded}
       >
 
-        <Typography
+        <Typography sx={{marginRight:'1rem', paddingTop:'1rem'}}
           variant='subtitle2'
         >
           {users.length} comentários
@@ -135,7 +135,7 @@ function FieldComment() {
 
               </Container>
 
-              <Typography>
+              <Typography >
                 {user.comment}
               </Typography>
 
