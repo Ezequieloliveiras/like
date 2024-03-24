@@ -7,9 +7,8 @@ const StyledTextareaAutosize = styled(TextareaAutosize)`
     border-radius: 20px;
     background-color: #f5f5f5;
     border: 1px solid #9e9e9e; 
-    padding: 7px;
+    padding: 10px;
     margin-left: 10px;
-    margin-bottom: 10px; 
     width: 90%;
     font-family: sans-serif;
     font-size: 15px;
@@ -17,16 +16,15 @@ const StyledTextareaAutosize = styled(TextareaAutosize)`
 
 const StyledButton = styled.button`
 && {
-    display: flex;
+            display: flex;
             align-items: center;
             justify-content:center;
             background-color: #000000;
             color: #ffffff;
-            padding: 5px;
             border-radius: 50%;
-            margin-left: 5px;
-            height: 30px;
-            width:30px;
+            margin: 0px 5px 0px 5px;
+            height: 38px;
+            width: 38px;
     
 }
 `
