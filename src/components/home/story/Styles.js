@@ -74,7 +74,7 @@ const HistoryEvents = styled.div`
   height: 80px;
   width: 80px;
   margin: 0 6px;
-  border: 2px solid #90caf9;
+  border: 2px solid #fafafa;
   border-radius: 100%;
   overflow: hidden;
   justify-content: center;

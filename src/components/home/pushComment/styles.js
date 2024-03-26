@@ -5,7 +5,8 @@ import { TextareaAutosize } from '@mui/base'
 const StyledTextareaAutosize = styled(TextareaAutosize)`
     resize: none;
     border-radius: 20px;
-    background-color: #f5f5f5;
+    background-color: #424242;
+    color: #ffffff;
     border: 1px solid #9e9e9e; 
     padding: 10px;
     margin-left: 10px;

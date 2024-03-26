@@ -11,11 +11,10 @@ const Product = () => {
     return (
         <>
             <Box sx={{
-                backgroundColor: '#ffffff',
+                backgroundColor: '#212121',
                 marginBottom: '30px',
                 textAlign: 'left',
                 padding: '10px',
-              
             }}>
                 <Carousel
                     autoPlay={false}
@@ -27,7 +26,7 @@ const Product = () => {
                             height: '100%',
                         }}
                     >
-                
+
                         <CardMedia
                             sx={{ paddingTop: '56%' }}
                             image='https://lh3.googleusercontent.com/p/AF1QipNxmy2-oBAl3gljo-cVPZSyfZ3_A50XpYySwkcp=s680-w680-h510'

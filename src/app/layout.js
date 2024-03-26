@@ -13,7 +13,7 @@ padding: 0;
 export default function RootLayout({ children }) {
   return (
     <html>
-      <StyledBody style={{ margin: '0px' }}>
+      <StyledBody style={{ margin: '0px', backgroundColor:'#000000' }}>
         <StyledComponentsRegistry>
           <Header />
           {children}
