@@ -10,12 +10,7 @@ import Carousel from "react-material-ui-carousel"
 const Product = () => {
     return (
         <>
-            <Box sx={{
-                backgroundColor: '#212121',
-                marginBottom: '30px',
-                textAlign: 'left',
-                padding: '10px',
-            }}>
+      
                 <Carousel
                     autoPlay={false}
                     animation='slide'
@@ -60,7 +55,7 @@ const Product = () => {
                         />
                     </Card>
                 </Carousel>
-            </Box>
+            
         </ >
     )
 }
