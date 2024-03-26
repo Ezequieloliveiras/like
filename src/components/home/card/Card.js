@@ -6,6 +6,9 @@ import styled from 'styled-components'
 import CommentField from '../pushComment/Coment'
 import ListComments from '../comments/FieldComment'
 
+import CarouselImage from './CarouselImage'
+
+
 import {
   Card,
   CardHeader,
@@ -17,7 +20,7 @@ import {
   Typography,
 } from '@mui/material'
 
-const StyledCardMedia = styled(CardMedia) `
+const StyledCardMedia = styled(CardMedia)`
   height: 800;
 
   @media (max-width: 767px) {
@@ -28,7 +31,7 @@ const StyledCardMedia = styled(CardMedia) `
 function RecipeReviewCard() {
 
   return (
-    <Card sx={{ width: '100%'}}>
+    <Card sx={{ width: '100%', textAlign: 'center' }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -40,21 +43,16 @@ function RecipeReviewCard() {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
+        title="BarlaventoVix"
+        subheader="Março de 2024"
       />
-     
-      <StyledCardMedia
-        component="img"
-        alt="Paella dish"
-        image={'https://source.unsplash.com/random'}
-        sx={{objectFit:'div', height:'600px'}}
-      />
+
+
+      <CarouselImage sx={{ position: 'absolute' }} />
+
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the mussels,
-          if you like.
+          Está procurando um dos melhores "Barzinhos" para curtir no seu final de semana? Então o  Barlaventovix é umas das melhores opções de Vitória. Musica ao vivo, Dj's com musicas eletrônicas, pagode e muito mais! Confira agora na Aura onde fica esse Bar que vai te deixar em êxtase.
         </Typography>
       </CardContent>
 

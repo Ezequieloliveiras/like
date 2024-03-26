@@ -24,7 +24,6 @@ function Comment() {
         alert('Não é possível enviar com campo vazio.')
       } else {
         await createComment(comment)
-
       }
 
       // Limpa o campo de comentário
