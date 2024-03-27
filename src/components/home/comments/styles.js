@@ -27,9 +27,6 @@ const StyledTextareaAutosizeEdit = styled(TextareaAutosize)`
     resize: none;
     border-radius: 20px;
     background: none;
-    input:focus {
-      outline: none;
-    }
     border: none;
     color: #f5f5f5;
     padding: 10px;
@@ -37,6 +34,14 @@ const StyledTextareaAutosizeEdit = styled(TextareaAutosize)`
     margin-bottom: 10px; 
     font-family: sans-serif;
     font-size: 15px;
+    input:focus {
+      outline: none;
+    }
+    @media only screen and (max-width: 768px) {
+      input {
+       outline: none;
+    }
+}
 `
 
 
