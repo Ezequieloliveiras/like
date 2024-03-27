@@ -27,7 +27,9 @@ const StyledTextareaAutosizeEdit = styled(TextareaAutosize)`
     resize: none;
     border-radius: 20px;
     background: none;
-    outline: none;
+    input:focus {
+      outline: none;
+    }
     border: none;
     color: #f5f5f5;
     padding: 10px;
