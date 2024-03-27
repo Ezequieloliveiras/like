@@ -16,11 +16,7 @@ const StyledTextareaAutosize = styled(TextareaAutosize)`
     input:focus {
       outline: none;
     }
-    @media only screen and (max-width: 768px) {
-      input, TextareaAutosize,textarea  {
-      outline: none;
-    }
-}
+
 `
 
 const StyledButton = styled.button`
