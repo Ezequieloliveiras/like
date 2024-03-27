@@ -34,9 +34,14 @@ const StyledTextareaAutosizeEdit = styled(TextareaAutosize)`
     margin-bottom: 10px; 
     font-family: sans-serif;
     font-size: 15px;
-    textarea:focus {
+    input:focus {
       outline: none;
     }
+    @media only screen and (max-width: 768px) {
+      textarea {
+       outline: none;
+    }
+}
 `
 
 
