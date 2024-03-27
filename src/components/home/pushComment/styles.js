@@ -13,9 +13,8 @@ const StyledTextareaAutosize = styled(TextareaAutosize)`
     width: 90%;
     font-family: sans-serif;
     font-size: 15px;
-    input:focus {
-      outline: none;
-    }
+    outline: none;
+
 
 `
 
