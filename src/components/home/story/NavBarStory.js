@@ -6,7 +6,6 @@ import {
 import {
   StyledBox,
   Container,
-  Img,
   HistoryEvents,
   ButtonNext,
 } from "./Styles"
@@ -30,62 +29,62 @@ const Storys = () => {
         <StyledBox id="scroll-container">
           <div>
             <HistoryEvents>
-              <Image src={Bar} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
+              <Image src={Bar} style={{ objectFit: 'cover', width: '100%', height: '100%' }} alt="beer"/>
             </HistoryEvents>
           </div>
           <div>
             <HistoryEvents>
-              <Image src={Bar} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
+              <Image src={Bar} style={{ objectFit: 'cover', width: '100%', height: '100%' }} alt="beer"/>
             </HistoryEvents>
           </div>
           <div>
             <HistoryEvents>
-              <Image src={Bar} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
+              <Image src={Bar} style={{ objectFit: 'cover', width: '100%', height: '100%' }} alt="beer"/>
             </HistoryEvents>
           </div>
           <div>
             <HistoryEvents>
-              <Image src={Bar} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
+              <Image src={Bar} style={{ objectFit: 'cover', width: '100%', height: '100%' }} alt="beer"/>
             </HistoryEvents>
           </div>
           <div>
             <HistoryEvents>
-              <Image src={Bar} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
+              <Image src={Bar} style={{ objectFit: 'cover', width: '100%', height: '100%' }} alt="beer"/>
             </HistoryEvents>
           </div>
           <div>
             <HistoryEvents>
-              <Image src={Bar} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
+              <Image src={Bar} style={{ objectFit: 'cover', width: '100%', height: '100%' }} alt="beer"/>
             </HistoryEvents>
           </div>
           <div>
             <HistoryEvents>
-              <Image src={Bar} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
+              <Image src={Bar} style={{ objectFit: 'cover', width: '100%', height: '100%' }} alt="beer"/>
             </HistoryEvents>
           </div>
           <div>
             <HistoryEvents>
-              <Image src={Bar} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
+              <Image src={Bar} style={{ objectFit: 'cover', width: '100%', height: '100%' }} alt="beer"/>
             </HistoryEvents>
           </div>
           <div>
             <HistoryEvents>
-              <Image src={Bar} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
+              <Image src={Bar} style={{ objectFit: 'cover', width: '100%', height: '100%' }} alt="beer"/>
             </HistoryEvents>
           </div>
           <div>
             <HistoryEvents>
-              <Image src={Bar} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
+              <Image src={Bar} style={{ objectFit: 'cover', width: '100%', height: '100%' }} alt="beer"/>
             </HistoryEvents>
           </div>
           <div>
             <HistoryEvents>
-              <Image src={Bar} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
+              <Image src={Bar} style={{ objectFit: 'cover', width: '100%', height: '100%' }} alt="beer"/>
             </HistoryEvents>
           </div>
           <div>
             <HistoryEvents>
-              <Image src={Bar} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
+              <Image src={Bar} style={{ objectFit: 'cover', width: '100%', height: '100%' }} alt="beer"/>
             </HistoryEvents>
           </div>
         </StyledBox>

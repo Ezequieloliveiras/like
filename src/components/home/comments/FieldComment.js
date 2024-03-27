@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import { Collapse, Typography } from '@mui/material'
-import { getUsers, deleteUser } from '@/app/api/apis/route'
+import { getUsers, deleteUser, updateUser } from '@/app/api/apis/route'
 
 import {
   StyledCardContent,
@@ -15,7 +15,6 @@ import {
   StyledBoxComment,
   StyledDivMenu
 } from './styles'
-
 
 function FieldComment() {
 
@@ -40,6 +39,15 @@ function FieldComment() {
       setUsers(users.filter(user => user._id !== id))
     } catch (error) {
       console.error('Erro ao excluir comentário:', error)
+    }
+  }
+
+  const updateComment = async (id, newCommentText) => {
+    try {
+      await updateUser(id, newCommentText)
+      setUsers(users.map(user => user._id === id ? { ...user, comment: newCommentText } : user))
+    } catch (error) {
+      console.error('Erro ao editar comentário:', error)
     }
   }
 
@@ -78,7 +86,7 @@ function FieldComment() {
         aria-expanded={expanded}
       >
 
-        <Typography sx={{ paddingTop:'1rem', paddingRight:'1rem',color:'#F5F5F5',}}
+        <Typography sx={{ paddingTop: '1rem', paddingRight: '1rem', color: '#F5F5F5', }}
           variant='subtitle2'
         >
           {users.length} comentários
@@ -95,7 +103,7 @@ function FieldComment() {
           <br />
           {users.map(user => (
 
-            <StyledBoxComment  key={user._id}>
+            <StyledBoxComment key={user._id}>
 
               <Container>
 
@@ -123,7 +131,12 @@ function FieldComment() {
                       </StyledMenuItem>
 
                       <StyledMenuItem
-                        onClick={() => updateUser(user._id)}
+                        onClick={() => {
+                          const newCommentText = prompt('Digite o novo texto do comentário:')
+                          if (newCommentText !== null) {
+                            updateComment(user._id, newCommentText)
+                          }
+                        }}
                       >
                         <StyledEdit />
                         Editar

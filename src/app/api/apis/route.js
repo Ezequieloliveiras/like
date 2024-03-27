@@ -22,6 +22,17 @@ export async function deleteUser(id) {
   }
 }
 
+export async function updateUser(userId, newCommentText) {
+  try {
+    await axios.put(`https://like-api-restfull.onrender.com/api/usuarios/${userId}`, { comment: newCommentText }) // chave e valor
+
+    // Aqui você pode atualizar o estado local ou buscar novamente os usuários da API, dependendo da sua implementação
+
+  } catch (error) {
+    console.error("Erro ao atualizar comentário:", error);
+  }
+}
+
 export async function createComment(comment) {
   try {
     await axios.post('https://like-api-restfull.onrender.com/api/usuarios', {comment})
