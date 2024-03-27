@@ -22,9 +22,9 @@ export async function deleteUser(id) {
   }
 }
 
-export async function updateUser(userId, newCommentText) {
+export async function updateUser(userId, editCommentText) {
   try {
-    await axios.put(`https://like-api-restfull.onrender.com/api/usuarios/${userId}`, { comment: newCommentText }) // chave e valor
+    await axios.put(`https://like-api-restfull.onrender.com/api/usuarios/${userId}`, { comment: editCommentText }) // chave e valor
 
     // Aqui você pode atualizar o estado local ou buscar novamente os usuários da API, dependendo da sua implementação
 

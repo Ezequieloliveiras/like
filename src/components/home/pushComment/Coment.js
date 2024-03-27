@@ -34,7 +34,6 @@ function Comment() {
     }
   }
 
-
   return (
     <div>
       <form onSubmit={handleSubmit} >
@@ -52,7 +51,6 @@ function Comment() {
               height: '15px'
             }} />
           </StyledButton>
-
 
         </div>
       </form>

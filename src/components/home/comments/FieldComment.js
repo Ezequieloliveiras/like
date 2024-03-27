@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect, useRef } from 'react'
-import { Collapse, Typography } from '@mui/material'
+import { Collapse, Typography, TextField, Button } from '@mui/material'
 import { getUsers, deleteUser, updateUser } from '@/app/api/apis/route'
 
 import {
@@ -18,12 +17,14 @@ import {
 
 function FieldComment() {
 
-  const [visibleUserDiv, setVisibleUserDiv] = useState(null) // inicialmente nenhum usuário visivel
+  const [visibleUserDiv, setVisibleUserDiv] = useState(null) // inicialmente nenhum usuário visível
   const [expanded, setExpanded] = useState(false) // campo expandido ou não
   const [users, setUsers] = useState([])
+  const [editCommentText, setEditCommentText] = useState('') // estado para armazenar o texto do comentário editado
+  const [editingUserId, setEditingUserId] = useState(null) // estado para armazenar o ID do usuário cujo comentário está sendo editado
   const menuRef = useRef(null)
 
-  const toggleVisibility = (userId) => { //verifica se o userId passado é igual ao visibleUserDiv atual.
+  const toggleVisibility = (userId) => {
     setVisibleUserDiv(userId === visibleUserDiv ? null : userId)
   }
 
@@ -42,10 +43,19 @@ function FieldComment() {
     }
   }
 
-  const updateComment = async (id, newCommentText) => {
+  const updateComment = async (id) => {
     try {
-      await updateUser(id, newCommentText)
-      setUsers(users.map(user => user._id === id ? { ...user, comment: newCommentText } : user))
+      // Verifica se o comentário existe antes de atualizá-lo
+      const userToUpdate = users.find(user => user._id === id);
+      if (!userToUpdate) {
+        console.error('Erro ao editar comentário: o comentário não existe.');
+        return;
+      }
+
+      await updateUser(id, editCommentText)
+      setUsers(users.map(user => user._id === id ? { ...user, comment: editCommentText } : user))
+      setEditingUserId(null) // Limpa o ID do usuário que está sendo editado
+      setEditCommentText('') // Limpa o texto do comentário editado
     } catch (error) {
       console.error('Erro ao editar comentário:', error)
     }
@@ -65,7 +75,7 @@ function FieldComment() {
 
   useEffect(() => {
     function handleClickOutside(event) {
-      if (menuRef.current && !menuRef.current.contains(event.target)) { // verifica se o clique foi na referencia ou fora 
+      if (menuRef.current && !menuRef.current.contains(event.target)) { // verifica se o clique foi na referência ou fora 
         setVisibleUserDiv(null)
       }
     }
@@ -127,17 +137,10 @@ function FieldComment() {
                         onClick={() => deleteComment(user._id)}
                       >
                         <StyledDelete />
-                        Exluir
+                        Excluir
                       </StyledMenuItem>
 
-                      <StyledMenuItem
-                        onClick={() => {
-                          const newCommentText = prompt('Digite o novo texto do comentário:')
-                          if (newCommentText !== null) {
-                            updateComment(user._id, newCommentText)
-                          }
-                        }}
-                      >
+                      <StyledMenuItem>
                         <StyledEdit />
                         Editar
                       </StyledMenuItem>
@@ -151,6 +154,15 @@ function FieldComment() {
               <Typography >
                 {user.comment}
               </Typography>
+              <div>
+                  <TextField
+                    value={editCommentText}
+                    onChange={(e) => setEditCommentText(e.target.value)}
+                    placeholder="Digite o novo texto do comentário"
+                  />
+                  <Button onClick={() => updateComment(user._id)}>Salvar</Button>
+
+              </div>
 
             </StyledBoxComment>
 
