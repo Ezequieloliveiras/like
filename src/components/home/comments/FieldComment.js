@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { Collapse, Typography, TextField, Button } from '@mui/material'
+import { Collapse, Typography } from '@mui/material'
 import { getUsers, deleteUser, updateUser } from '@/app/api/apis/route'
 
 import {
@@ -12,7 +12,8 @@ import {
   StyledDelete,
   StyledEdit,
   StyledBoxComment,
-  StyledDivMenu
+  StyledDivMenu,
+  StyledTextareaAutosizeEdit,
 } from './styles'
 
 function FieldComment() {
@@ -25,7 +26,7 @@ function FieldComment() {
   const menuRef = useRef(null)
 
   const toggleVisibility = (userId) => {
-    setVisibleUserDiv(userId === visibleUserDiv ? null : userId)
+    setVisibleUserDiv(userId === visibleUserDiv ? null : userId) // se null invisible else userId  = visible
   }
 
   const handleExpandClick = () => {
@@ -41,6 +42,16 @@ function FieldComment() {
     } catch (error) {
       console.error('Erro ao excluir comentário:', error)
     }
+  }
+
+  const startEditing = (id, comment) => {
+    setEditingUserId(id)
+    setEditCommentText(comment)
+  }
+
+  const cancelEditing = () => {
+    setEditingUserId(null) // quando for cancelada a edicao o campo sera null
+    setEditCommentText('') // o campo de texto seja string vazia se for cancelado
   }
 
   const updateComment = async (id) => {
@@ -140,7 +151,7 @@ function FieldComment() {
                         Excluir
                       </StyledMenuItem>
 
-                      <StyledMenuItem>
+                      <StyledMenuItem onClick={() => startEditing(user._id, user.comment)}>
                         <StyledEdit />
                         Editar
                       </StyledMenuItem>
@@ -151,18 +162,38 @@ function FieldComment() {
 
               </Container>
 
-              <Typography >
-                {user.comment}
-              </Typography>
-              <div>
-                  <TextField
+
+              {editingUserId === user._id ? (
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <StyledTextareaAutosizeEdit
                     value={editCommentText}
                     onChange={(e) => setEditCommentText(e.target.value)}
                     placeholder="Digite o novo texto do comentário"
                   />
-                  <Button onClick={() => updateComment(user._id)}>Salvar</Button>
+                  <div style={{ marginTop: '10px' }}>
+                    <button
+                      style={{ color: '#f5f5f5', background: 'none', border: 'none', outline:'none'  }}
+                      onClick={() => updateComment(user._id)}
+                    >
+                      Salvar
+                    </button>
+                    <button
+                      style={{ color: '#f5f5f5', background: 'none', border: 'none', outline:'none' }}
+                      onClick={cancelEditing}
+                    >
+                      Cancelar
+                    </button>
+                  </div>
 
-              </div>
+                </div>
+
+              ) : (
+
+                <Typography >
+                  {user.comment}
+                </Typography>
+              )
+              }
 
             </StyledBoxComment>
 

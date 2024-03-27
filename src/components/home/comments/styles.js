@@ -4,24 +4,39 @@ import { TextareaAutosize } from '@mui/base'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
 
 import { Box, Menu, CardContent, MenuItem } from '@mui/material'
-import { Delete, Edit} from '@mui/icons-material'
+import { Delete, Edit } from '@mui/icons-material'
 
 const StyledCardContent = styled(CardContent)`
   padding: 0px;
 `
 
-const StyledTextareaAutosize = styled(TextareaAutosize)`
+// const StyledTextareaAutosize = styled(TextareaAutosize)`
+//     resize: none;
+//     border-radius: 20px;
+//     background-color: #f5f5f5;
+//     border: 1px solid #9e9e9e; 
+//     padding: 10px;
+//     margin-left: 10px;
+//     margin-bottom: 10px; 
+//     width: 100%;
+//     font-family: sans-serif;
+//     font-size: 15px;
+// `
+
+const StyledTextareaAutosizeEdit = styled(TextareaAutosize)`
     resize: none;
     border-radius: 20px;
-    background-color: #f5f5f5;
-    border: 1px solid #9e9e9e; 
+    background: none;
+    outline: none;
+    border: none;
+    color: #f5f5f5;
     padding: 10px;
     margin-left: 10px;
     margin-bottom: 10px; 
-    width: 100%;
     font-family: sans-serif;
     font-size: 15px;
 `
+
 
 const Container = styled.div`
   display: flex;
@@ -90,7 +105,8 @@ export {
   DrawerMenu,
   StyledMenuItem,
   StyledCardContent,
-  StyledTextareaAutosize,
+  // StyledTextareaAutosize,
+  StyledTextareaAutosizeEdit,
   StyledMoreHorizIcon,
   StyledDelete,
   StyledEdit,
